@@ -1,0 +1,41 @@
+.app {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+
+	&__clocks {
+		display: flex;
+	}
+}
+
+.clocks {
+	display: flex;
+	flex-direction: row;
+}
+
+.part {
+	display: flex;
+	flex-direction: row;
+}
+
+.point {
+	&__sign {
+		animation: blink 1s infinite;
+	}
+}
+@keyframes blink {
+	0% {
+		color: #fff;
+	}
+	30% {
+		color: #fff;
+	}
+	31% {
+		color: #000;
+	}
+	100% {
+		color: #000;
+	}
+}
