@@ -17,13 +17,13 @@ function Clocks() {
 
 	return (
 		<div className="clocks">
-			<div className="clocks__part">
+			<div className="clocks__part part">
 				<Part part={hours} />
 			</div>
-			<div className="clocks__point">
+			<div className="clocks__point point">
 				<Point />
 			</div>
-			<div className="clocks__part">
+			<div className="clocks__part part">
 				<Part part={minutes} />
 			</div>
 		</div>

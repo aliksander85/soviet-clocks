@@ -1,3 +1,12 @@
+$green: rgb(0, 188, 0);
+$greenshadow: rgba(0, 188, 0, 0.28);
+$darkGreen: #213a2b;
+
+@mixin active-item() {
+	background-color: $green;
+	box-shadow: 0 0 3px 4px $greenshadow;
+}
+
 .app {
 	display: flex;
 	align-items: center;
@@ -11,31 +20,184 @@
 }
 
 .clocks {
-	display: flex;
-	flex-direction: row;
+	width: 420px;
+	padding: 20px 15px;
+	background-color: #000;
+	position: relative;
+	border: 8px solid rgb(93, 59, 8);
+
+	&__part {
+		display: inline-block;
+	}
+	&__point {
+		display: inline-block;
+	}
 }
 
 .part {
-	display: flex;
-	flex-direction: row;
+	&__digit {
+		display: inline-block;
+	}
 }
 
 .point {
-	&__sign {
-		animation: blink 1s infinite;
-	}
+	display: inline-block;
+	width: 10px;
+	height: 20px;
+	padding: 2px 4px;
+	margin: 1px 10px 1px 1px;
+	transform: skew(-2deg);
+}
+
+.point-sign {
+	position: relative;
+	float: left;
+	margin: 0;
+	width: 10px;
+	height: 20px;
+	border-radius: 2px;
+	animation: blink 1s infinite;
 }
 @keyframes blink {
 	0% {
-		color: #fff;
+		background-color: $darkGreen;
 	}
 	30% {
-		color: #fff;
+		background-color: $darkGreen;
 	}
 	31% {
-		color: #000;
+		@include active-item();
 	}
 	100% {
-		color: #000;
+		@include active-item();
+	}
+}
+
+.digit {
+	display: inline-block;
+	width: 85px;
+	height: 145px;
+	padding: 2px 5px;
+	margin: 1px;
+	transform: skew(-5deg);
+	background: #000;
+
+	&__container {
+		width: 100%;
+		height: 100%;
+		float: left;
+	}
+	&__dot {
+		float: left;
+	}
+}
+
+.dot {
+	margin: 1px;
+	width: 10px;
+	height: 10px;
+	background-color: $darkGreen;
+	border-radius: 50%;
+}
+
+//Numbers
+.digit-0 {
+	.dot:nth-child(-n + 14),
+	.dot:nth-child(7n + 1),
+	.dot:nth-child(7n + 2),
+	.dot:nth-child(7n + 6),
+	.dot:nth-child(7n + 7),
+	.dot:nth-child(n + 71):nth-child(-n + 85) {
+		@include active-item();
+	}
+}
+.digit-1 {
+	.dot:nth-child(7n),
+	.dot:nth-child(7n + 6) {
+		@include active-item();
+	}
+}
+.digit-2 {
+	.dot:nth-child(-n + 14),
+	.dot:nth-child(n + 20):nth-child(-n + 21),
+	.dot:nth-child(n + 27):nth-child(-n + 28),
+	.dot:nth-child(n + 34):nth-child(-n + 51),
+	.dot:nth-child(n + 57):nth-child(-n + 58),
+	.dot:nth-child(n + 64):nth-child(-n + 65),
+	.dot:nth-child(n + 71):nth-child(-n + 85) {
+		@include active-item();
+	}
+}
+.digit-3 {
+	.dot:nth-child(-n + 14),
+	.dot:nth-child(n + 36):nth-child(-n + 49),
+	.dot:nth-child(n + 71):nth-child(-n + 85),
+	.dot:nth-child(7n),
+	.dot:nth-child(7n + 6) {
+		@include active-item();
+	}
+}
+.digit-4 {
+	.dot:nth-child(n + 1):nth-child(-n + 2),
+	.dot:nth-child(n + 8):nth-child(-n + 9),
+	.dot:nth-child(n + 15):nth-child(-n + 16),
+	.dot:nth-child(n + 22):nth-child(-n + 23),
+	.dot:nth-child(n + 29):nth-child(-n + 30),
+	.dot:nth-child(n + 36):nth-child(-n + 49),
+	.dot:nth-child(7n),
+	.dot:nth-child(7n + 6) {
+		@include active-item();
+	}
+}
+.digit-5 {
+	.dot:nth-child(-n + 16),
+	.dot:nth-child(n + 22):nth-child(-n + 23),
+	.dot:nth-child(n + 29):nth-child(-n + 30),
+	.dot:nth-child(n + 36):nth-child(-n + 49),
+	.dot:nth-child(n + 55):nth-child(-n + 56),
+	.dot:nth-child(n + 62):nth-child(-n + 63),
+	.dot:nth-child(n + 69):nth-child(-n + 85) {
+		@include active-item();
+	}
+}
+.digit-6 {
+	.dot:nth-child(-n + 14),
+	.dot:nth-child(7n + 1),
+	.dot:nth-child(7n + 2),
+	.dot:nth-child(n + 36):nth-child(-n + 49),
+	.dot:nth-child(n + 55):nth-child(-n + 56),
+	.dot:nth-child(n + 62):nth-child(-n + 63),
+	.dot:nth-child(n + 69):nth-child(-n + 85) {
+		@include active-item();
+	}
+}
+.digit-7 {
+	.dot:nth-child(-n + 12),
+	.dot:nth-child(7n),
+	.dot:nth-child(7n + 6) {
+		@include active-item();
+	}
+}
+.digit-8 {
+	.dot:nth-child(-n + 12),
+	.dot:nth-child(7n),
+	.dot:nth-child(7n + 6),
+	.dot:nth-child(7n + 1),
+	.dot:nth-child(7n + 2),
+	.dot:nth-child(n + 36):nth-child(-n + 47),
+	.dot:nth-child(n + 73):nth-child(-n + 83) {
+		@include active-item();
+	}
+}
+.digit-9 {
+	.dot:nth-child(n + 1):nth-child(-n + 12),
+	.dot:nth-child(n + 15):nth-child(-n + 16),
+	.dot:nth-child(n + 22):nth-child(-n + 23),
+	.dot:nth-child(n + 29):nth-child(-n + 30),
+	.dot:nth-child(n + 36):nth-child(-n + 49),
+	.dot:nth-child(7n),
+	.dot:nth-child(7n + 6),
+	.dot:nth-child(n + 71):nth-child(-n + 83) {
+		@include active-item();
 	}
 }

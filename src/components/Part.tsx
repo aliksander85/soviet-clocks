@@ -21,14 +21,14 @@ function Part({ part }: PartProps) {
 	}, [part]);
 
 	return (
-		<div className="part">
-			<div className="part__digit">
+		<>
+			<div className="part__digit digit">
 				<Digit digit={leftPart} />
 			</div>
-			<div className="part__digit">
+			<div className="part__digit digit">
 				<Digit digit={rightPart} />
 			</div>
-		</div>
+		</>
 	);
 }
 
