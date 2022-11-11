@@ -26,6 +26,7 @@ function Clocks() {
 			<div className="clocks__part part">
 				<Part part={minutes} />
 			</div>
+			<h4 className="clocks__name name">Электроника 7</h4>
 		</div>
 	);
 }

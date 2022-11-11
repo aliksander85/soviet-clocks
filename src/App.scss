@@ -1,6 +1,7 @@
 $green: rgb(0, 188, 0);
 $greenshadow: rgba(0, 188, 0, 0.28);
 $darkGreen: #213a2b;
+$clocksBackground: #000;
 
 @mixin active-item() {
 	background-color: $green;
@@ -22,7 +23,7 @@ $darkGreen: #213a2b;
 .clocks {
 	width: 420px;
 	padding: 20px 15px;
-	background-color: #000;
+	background-color: $clocksBackground;
 	position: relative;
 	border: 8px solid rgb(93, 59, 8);
 
@@ -31,6 +32,11 @@ $darkGreen: #213a2b;
 	}
 	&__point {
 		display: inline-block;
+	}
+	&__name {
+		position: absolute;
+		right: 25px;
+		bottom: -17px;
 	}
 }
 
@@ -80,7 +86,7 @@ $darkGreen: #213a2b;
 	padding: 2px 5px;
 	margin: 1px;
 	transform: skew(-5deg);
-	background: #000;
+	background: $clocksBackground;
 
 	&__container {
 		width: 100%;
@@ -200,4 +206,10 @@ $darkGreen: #213a2b;
 	.dot:nth-child(n + 71):nth-child(-n + 83) {
 		@include active-item();
 	}
+}
+
+.name {
+	color: #fff;
+	text-transform: uppercase;
+	transform: skew(-15deg);
 }
