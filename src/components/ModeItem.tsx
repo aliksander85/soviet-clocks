@@ -8,8 +8,6 @@ type ModeItemProps = {
 };
 
 function ModeItem({ modeKey, mode, handleModeClick }: ModeItemProps) {
-	console.log('mode', mode);
-	console.log('modeKey', modeKey);
 	return (
 		<li
 			className={
