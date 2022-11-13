@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.scss';
-import Clocks from './components/Clocks';
+import Settings from './components/Settings';
 
 function App() {
 	return (
 		<main className="app">
-			<div className="app__clocks">
-				<Clocks />
+			<div className="app__settings">
+				<Settings />
 			</div>
 		</main>
 	);
