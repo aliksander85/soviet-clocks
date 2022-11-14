@@ -1,13 +1,14 @@
-import React from 'react';
-import { Modes } from '../mode';
+import { useSelector } from 'react-redux';
+import { Modes } from '../store/modeSlice';
+import { RootState } from '../store/index';
 
 type ModeItemProps = {
-	modeKey: string;
-	mode: string;
+	modeKey: string | Modes;
 	handleModeClick: (modeKey: keyof Modes) => void;
 };
 
-function ModeItem({ modeKey, mode, handleModeClick }: ModeItemProps) {
+function ModeItem({ modeKey, handleModeClick }: ModeItemProps) {
+	const mode = useSelector((state: RootState) => state.mode.mode);
 	return (
 		<li
 			className={

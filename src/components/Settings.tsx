@@ -1,28 +1,30 @@
-import React, { useContext } from 'react';
 import Clocks from './Clocks';
-import { Modes, ColorModeContext, useMode } from '../mode';
+import { useDispatch } from 'react-redux';
+import { setMode } from '../store/modeSlice';
+import { Modes } from '../store/modeSlice';
 import ModeItem from './ModeItem';
 
 function Settings() {
-	const clocksMode = useContext(ColorModeContext);
-	const [mode] = useMode();
+	const dispatch = useDispatch();
 
 	const handleModeClick = (modeKey: keyof Modes) => {
-		clocksMode.switchMode(modeKey);
+		console.log('modeKey', modeKey);
+		dispatch(setMode({ mode: modeKey }));
 	};
 
 	return (
 		<div className="settings">
 			<ul className="settings__mode mode">
-				{Object.keys(Modes)
+				{Object.values(Modes)
 					.filter(
-						(modekey) => modekey[0].toUpperCase() !== modekey[0]
+						(modekey: string | Modes) =>
+							String(modekey)[0].toUpperCase() !==
+							String(modekey)[0]
 					)
 					.map((modeKey) => (
 						<ModeItem
 							key={modeKey}
-							modeKey={modeKey}
-							mode={mode as keyof Modes}
+							modeKey={modeKey as keyof Modes}
 							handleModeClick={handleModeClick}
 						/>
 					))}
