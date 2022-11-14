@@ -14,7 +14,9 @@ function ModeItem({ modeKey, handleModeClick }: ModeItemProps) {
 			className={
 				'mode__item mode-item ' +
 				`${modeKey} ` +
-				(mode === modeKey ? 'selected' : '')
+				(mode === Modes[modeKey as keyof typeof Modes]
+					? 'selected'
+					: '')
 			}
 			onClick={() => handleModeClick(modeKey as keyof Modes)}
 		>

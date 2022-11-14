@@ -9,7 +9,7 @@ function Settings() {
 
 	const handleModeClick = (modeKey: keyof Modes) => {
 		console.log('modeKey', modeKey);
-		dispatch(setMode({ mode: modeKey }));
+		dispatch(setMode({ mode: Modes[modeKey as keyof typeof Modes] }));
 	};
 
 	return (

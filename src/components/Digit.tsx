@@ -1,4 +1,7 @@
 import React, { useLayoutEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Modes } from '../store/modeSlice';
+import { RootState } from '../store/index';
 import { DIGIT_SQUARE } from '../constants/constants';
 
 type DigitProps = {
@@ -7,6 +10,7 @@ type DigitProps = {
 
 function Digit({ digit }: DigitProps) {
 	const [spans, setSpans] = useState<number[]>([]);
+	const mode = useSelector((state: RootState) => state.mode.mode);
 
 	const createSpans = () => {
 		const tempSpans = [];
@@ -23,11 +27,15 @@ function Digit({ digit }: DigitProps) {
 	}, []);
 
 	return (
-		<div className={`digit__container digit-${digit}`}>
-			{spans.map((sp, i) => (
-				<span className="digit__dot dot" key={i}></span>
-			))}
-		</div>
+		<>
+			{mode === Modes.hoursMinutes && (
+				<div className={`digit__container digit-${digit}`}>
+					{spans.map((sp, i) => (
+						<span className="digit__dot dot" key={i}></span>
+					))}
+				</div>
+			)}
+		</>
 	);
 }
 
