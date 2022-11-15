@@ -5,10 +5,10 @@ import { RootState } from '../store/index';
 import { DIGIT_SQUARE } from '../constants/constants';
 
 type DigitProps = {
-	digit: number;
+	value: number;
 };
 
-function Digit({ digit }: DigitProps) {
+function Digit({ value }: DigitProps) {
 	const [spans, setSpans] = useState<number[]>([]);
 	const mode = useSelector((state: RootState) => state.mode.mode);
 
@@ -29,21 +29,21 @@ function Digit({ digit }: DigitProps) {
 	return (
 		<>
 			{mode === Modes.hoursMinutes && (
-				<div className={`digit__container digit-${digit}`}>
+				<div className={`digit__container digit-${value}`}>
 					{spans.map((sp, i) => (
 						<span className="digit__dot dot" key={i}></span>
 					))}
 				</div>
 			)}
 			{mode === Modes.hoursMinutesSeconds && (
-				<div className={`digit__container digit-${digit}`}>
+				<div className={`digit__container digit-${value}`}>
 					{spans.map((sp, i) => (
 						<span className="digit__dot dot" key={i}></span>
 					))}
 				</div>
 			)}
 			{mode === Modes.date && (
-				<div className={`digit__container digit-${digit}`}>
+				<div className={`digit__container digit-${value}`}>
 					{spans.map((sp, i) => (
 						<span className="digit__dot dot" key={i}></span>
 					))}

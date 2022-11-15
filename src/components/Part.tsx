@@ -29,8 +29,8 @@ export enum Roles {
 }
 
 function Part({ part, role }: PartProps) {
-	const [leftPart, setLeftPart] = useState<number>(0);
-	const [rightPart, setRightPart] = useState<number>(0);
+	const [leftDigit, setLeftDigit] = useState<number>(0);
+	const [rightDigit, setRightDigit] = useState<number>(0);
 	const mode = useSelector((state: RootState) => state.mode.mode);
 
 	const setHoursAndMinutes = () => {
@@ -47,34 +47,34 @@ function Part({ part, role }: PartProps) {
 				break;
 		}
 		if (part[rolePartValue as keyof PartProperties] < TEN) {
-			setLeftPart(0);
-			setRightPart(part[rolePartValue as keyof PartProperties]);
+			setLeftDigit(0);
+			setRightDigit(part[rolePartValue as keyof PartProperties]);
 			return;
 		}
-		setLeftPart(
+		setLeftDigit(
 			Math.floor(part[rolePartValue as keyof PartProperties] / TEN)
 		);
-		setRightPart(part[rolePartValue as keyof PartProperties] % TEN);
+		setRightDigit(part[rolePartValue as keyof PartProperties] % TEN);
 	};
 
 	const setHoursMinutesAndSeconds = () => {
 		switch (role) {
 			case Roles.hoursAndMinutes:
-				setLeftPart(part.hours);
-				setRightPart(part.minutes);
+				setLeftDigit(part.hours);
+				setRightDigit(part.minutes);
 				break;
 			case Roles.seconds:
 				if (part.seconds < TEN) {
-					setLeftPart(0);
-					setRightPart(part.seconds);
+					setLeftDigit(0);
+					setRightDigit(part.seconds);
 					return;
 				}
-				setLeftPart(Math.floor(part.seconds / TEN));
-				setRightPart(part.seconds % TEN);
+				setLeftDigit(Math.floor(part.seconds / TEN));
+				setRightDigit(part.seconds % TEN);
 				break;
 			default:
-				setLeftPart(part.hours);
-				setRightPart(part.minutes);
+				setLeftDigit(part.hours);
+				setRightDigit(part.minutes);
 				break;
 		}
 	};
@@ -83,16 +83,16 @@ function Part({ part, role }: PartProps) {
 		switch (role) {
 			case Roles.day:
 				if (part.day < TEN) {
-					setLeftPart(0);
-					setRightPart(part.day);
+					setLeftDigit(0);
+					setRightDigit(part.day);
 					return;
 				}
-				setLeftPart(Math.floor(part.day / TEN));
-				setRightPart(part.day % TEN);
+				setLeftDigit(Math.floor(part.day / TEN));
+				setRightDigit(part.day % TEN);
 				break;
 			case Roles.monthAndYear:
-				setLeftPart(part.month);
-				setRightPart(part.year);
+				setLeftDigit(part.month);
+				setRightDigit(part.year);
 				break;
 			default:
 				break;
@@ -119,10 +119,10 @@ function Part({ part, role }: PartProps) {
 	return (
 		<>
 			<div className="part__digit digit">
-				<Digit digit={leftPart} />
+				<Digit value={leftDigit} />
 			</div>
 			<div className="part__digit digit">
-				<Digit digit={rightPart} />
+				<Digit value={rightDigit} />
 			</div>
 		</>
 	);
