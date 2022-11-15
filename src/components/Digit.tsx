@@ -35,6 +35,20 @@ function Digit({ digit }: DigitProps) {
 					))}
 				</div>
 			)}
+			{mode === Modes.hoursMinutesSeconds && (
+				<div className={`digit__container digit-${digit}`}>
+					{spans.map((sp, i) => (
+						<span className="digit__dot dot" key={i}></span>
+					))}
+				</div>
+			)}
+			{mode === Modes.date && (
+				<div className={`digit__container digit-${digit}`}>
+					{spans.map((sp, i) => (
+						<span className="digit__dot dot" key={i}></span>
+					))}
+				</div>
+			)}
 		</>
 	);
 }
