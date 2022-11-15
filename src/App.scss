@@ -4,6 +4,7 @@ $highlightshadow: rgba(0, 188, 0, 0.28);
 $darkGreen: #213a2b;
 $clocksBackground: #000;
 $clocksBorder: rgb(93, 59, 8);
+$smallDigitOffset: 4;
 
 @mixin active-item() {
 	background-color: $highlight;
@@ -241,25 +242,165 @@ $clocksBorder: rgb(93, 59, 8);
 	}
 }
 
-.small-digit-0 {
+// Small digits
+@mixin small-digit-0($offset) {
+	.dot:nth-child(n + #{43 + $offset}):nth-child(-n + #{45 + $offset}),
+	.dot:nth-child(n + #{50 + $offset}):nth-child(-n + #{50 + $offset}),
+	.dot:nth-child(n + #{52 + $offset}):nth-child(-n + #{52 + $offset}),
+	.dot:nth-child(n + #{57 + $offset}):nth-child(-n + #{57 + $offset}),
+	.dot:nth-child(n + #{59 + $offset}):nth-child(-n + #{59 + $offset}),
+	.dot:nth-child(n + #{64 + $offset}):nth-child(-n + #{64 + $offset}),
+	.dot:nth-child(n + #{66 + $offset}):nth-child(-n + #{66 + $offset}),
+	.dot:nth-child(n + #{71 + $offset}):nth-child(-n + #{73 + $offset}) {
+		@include active-item();
+	}
 }
-.small-digit-1 {
+.left-small-digit-0 {
+	@include small-digit-0(0);
 }
-.small-digit-2 {
+.right-small-digit-0 {
+	@include small-digit-0($smallDigitOffset);
 }
-.small-digit-3 {
+@mixin small-digit-1($offset) {
+	.dot:nth-child(n + #{45 + $offset}):nth-child(-n + #{45 + $offset}),
+	.dot:nth-child(n + #{52 + $offset}):nth-child(-n + #{52 + $offset}),
+	.dot:nth-child(n + #{59 + $offset}):nth-child(-n + #{59 + $offset}),
+	.dot:nth-child(n + #{66 + $offset}):nth-child(-n + #{66 + $offset}),
+	.dot:nth-child(n + #{73 + $offset}):nth-child(-n + #{73 + $offset}) {
+		@include active-item();
+	}
 }
-.small-digit-4 {
+.left-small-digit-1 {
+	@include small-digit-1(0);
 }
-.small-digit-5 {
+.right-small-digit-1 {
+	@include small-digit-1($smallDigitOffset);
 }
-.small-digit-6 {
+@mixin small-digit-2($offset) {
+	.dot:nth-child(n + #{43 + $offset}):nth-child(-n + #{45 + $offset}),
+	.dot:nth-child(n + #{52 + $offset}):nth-child(-n + #{52 + $offset}),
+	.dot:nth-child(n + #{57 + $offset}):nth-child(-n + #{59 + $offset}),
+	.dot:nth-child(n + #{64 + $offset}):nth-child(-n + #{64 + $offset}),
+	.dot:nth-child(n + #{71 + $offset}):nth-child(-n + #{73 + $offset}) {
+		@include active-item();
+	}
 }
-.small-digit-7 {
+.left-small-digit-2 {
+	@include small-digit-2(0);
 }
-.small-digit-8 {
+.right-small-digit-2 {
+	@include small-digit-2($smallDigitOffset);
 }
-.small-digit-9 {
+@mixin small-digit-3($offset) {
+	.dot:nth-child(n + #{43 + $offset}):nth-child(-n + #{45 + $offset}),
+	.dot:nth-child(n + #{52 + $offset}):nth-child(-n + #{52 + $offset}),
+	.dot:nth-child(n + #{57 + $offset}):nth-child(-n + #{59 + $offset}),
+	.dot:nth-child(n + #{66 + $offset}):nth-child(-n + #{66 + $offset}),
+	.dot:nth-child(n + #{71 + $offset}):nth-child(-n + #{73 + $offset}) {
+		@include active-item();
+	}
+}
+.left-small-digit-3 {
+	@include small-digit-3(0);
+}
+.right-small-digit-3 {
+	@include small-digit-3($smallDigitOffset);
+}
+@mixin small-digit-4($offset) {
+	.dot:nth-child(n + #{43 + $offset}):nth-child(-n + #{43 + $offset}),
+	.dot:nth-child(n + #{45 + $offset}):nth-child(-n + #{45 + $offset}),
+	.dot:nth-child(n + #{50 + $offset}):nth-child(-n + #{50 + $offset}),
+	.dot:nth-child(n + #{52 + $offset}):nth-child(-n + #{52 + $offset}),
+	.dot:nth-child(n + #{57 + $offset}):nth-child(-n + #{59 + $offset}),
+	.dot:nth-child(n + #{66 + $offset}):nth-child(-n + #{66 + $offset}),
+	.dot:nth-child(n + #{73 + $offset}):nth-child(-n + #{73 + $offset}) {
+		@include active-item();
+	}
+}
+.left-small-digit-4 {
+	@include small-digit-4(0);
+}
+.right-small-digit-4 {
+	@include small-digit-4($smallDigitOffset);
+}
+@mixin small-digit-5($offset) {
+	.dot:nth-child(n + #{43 + $offset}):nth-child(-n + #{45 + $offset}),
+	.dot:nth-child(n + #{50 + $offset}):nth-child(-n + #{50 + $offset}),
+	.dot:nth-child(n + #{57 + $offset}):nth-child(-n + #{59 + $offset}),
+	.dot:nth-child(n + #{66 + $offset}):nth-child(-n + #{66 + $offset}),
+	.dot:nth-child(n + #{71 + $offset}):nth-child(-n + #{73 + $offset}) {
+		@include active-item();
+	}
+}
+.left-small-digit-5 {
+	@include small-digit-5(0);
+}
+.right-small-digit-5 {
+	@include small-digit-5($smallDigitOffset);
+}
+@mixin small-digit-6($offset) {
+	.dot:nth-child(n + #{43 + $offset}):nth-child(-n + #{45 + $offset}),
+	.dot:nth-child(n + #{50 + $offset}):nth-child(-n + #{50 + $offset}),
+	.dot:nth-child(n + #{57 + $offset}):nth-child(-n + #{59 + $offset}),
+	.dot:nth-child(n + #{64 + $offset}):nth-child(-n + #{64 + $offset}),
+	.dot:nth-child(n + #{66 + $offset}):nth-child(-n + #{66 + $offset}),
+	.dot:nth-child(n + #{71 + $offset}):nth-child(-n + #{73 + $offset}) {
+		@include active-item();
+	}
+}
+.left-small-digit-6 {
+	@include small-digit-6(0);
+}
+.right-small-digit-6 {
+	@include small-digit-6($smallDigitOffset);
+}
+@mixin small-digit-7($offset) {
+	.dot:nth-child(n + #{43 + $offset}):nth-child(-n + #{45 + $offset}),
+	.dot:nth-child(n + #{52 + $offset}):nth-child(-n + #{52 + $offset}),
+	.dot:nth-child(n + #{59 + $offset}):nth-child(-n + #{59 + $offset}),
+	.dot:nth-child(n + #{66 + $offset}):nth-child(-n + #{66 + $offset}),
+	.dot:nth-child(n + #{73 + $offset}):nth-child(-n + #{73 + $offset}) {
+		@include active-item();
+	}
+}
+.left-small-digit-7 {
+	@include small-digit-7(0);
+}
+.right-small-digit-7 {
+	@include small-digit-7($smallDigitOffset);
+}
+@mixin small-digit-8($offset) {
+	.dot:nth-child(n + #{43 + $offset}):nth-child(-n + #{45 + $offset}),
+	.dot:nth-child(n + #{50 + $offset}):nth-child(-n + #{50 + $offset}),
+	.dot:nth-child(n + #{52 + $offset}):nth-child(-n + #{52 + $offset}),
+	.dot:nth-child(n + #{57 + $offset}):nth-child(-n + #{59 + $offset}),
+	.dot:nth-child(n + #{64 + $offset}):nth-child(-n + #{64 + $offset}),
+	.dot:nth-child(n + #{66 + $offset}):nth-child(-n + #{66 + $offset}),
+	.dot:nth-child(n + #{71 + $offset}):nth-child(-n + #{73 + $offset}) {
+		@include active-item();
+	}
+}
+.left-small-digit-8 {
+	@include small-digit-8(0);
+}
+.right-small-digit-8 {
+	@include small-digit-8($smallDigitOffset);
+}
+@mixin small-digit-9($offset) {
+	.dot:nth-child(n + #{43 + $offset}):nth-child(-n + #{45 + $offset}),
+	.dot:nth-child(n + #{50 + $offset}):nth-child(-n + #{50 + $offset}),
+	.dot:nth-child(n + #{52 + $offset}):nth-child(-n + #{52 + $offset}),
+	.dot:nth-child(n + #{57 + $offset}):nth-child(-n + #{59 + $offset}),
+	.dot:nth-child(n + #{66 + $offset}):nth-child(-n + #{66 + $offset}),
+	.dot:nth-child(n + #{71 + $offset}):nth-child(-n + #{73 + $offset}) {
+		@include active-item();
+	}
+}
+.left-small-digit-9 {
+	@include small-digit-9(0);
+}
+.right-small-digit-9 {
+	@include small-digit-9($smallDigitOffset);
 }
 
 .name {

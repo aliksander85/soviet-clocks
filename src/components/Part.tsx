@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Modes } from '../store/modeSlice';
 import { RootState } from '../store/index';
 import { TEN } from '../constants/constants';
-import Digit from './Digit';
+import Digit, { DigitRoles } from './Digit';
 
 type PartProperties = {
 	hours: number;
@@ -26,11 +26,18 @@ export enum Roles {
 	seconds = 'seconds',
 	day = 'day',
 	monthAndYear = 'monthAndYear',
+	test = 'test',
 }
 
 function Part({ part, role }: PartProps) {
 	const [leftDigit, setLeftDigit] = useState<number>(0);
 	const [rightDigit, setRightDigit] = useState<number>(0);
+	const [leftDigitRole, setLeftDigitRole] = useState<DigitRoles>(
+		DigitRoles.oneDigit
+	);
+	const [rightDigitRole, setRightDigitRole] = useState<DigitRoles>(
+		DigitRoles.oneDigit
+	);
 	const mode = useSelector((state: RootState) => state.mode.mode);
 
 	const setHoursAndMinutes = () => {
@@ -49,12 +56,16 @@ function Part({ part, role }: PartProps) {
 		if (part[rolePartValue as keyof PartProperties] < TEN) {
 			setLeftDigit(0);
 			setRightDigit(part[rolePartValue as keyof PartProperties]);
+			setLeftDigitRole(DigitRoles.oneDigit);
+			setRightDigitRole(DigitRoles.oneDigit);
 			return;
 		}
 		setLeftDigit(
 			Math.floor(part[rolePartValue as keyof PartProperties] / TEN)
 		);
 		setRightDigit(part[rolePartValue as keyof PartProperties] % TEN);
+		setLeftDigitRole(DigitRoles.oneDigit);
+		setRightDigitRole(DigitRoles.oneDigit);
 	};
 
 	const setHoursMinutesAndSeconds = () => {
@@ -62,19 +73,27 @@ function Part({ part, role }: PartProps) {
 			case Roles.hoursAndMinutes:
 				setLeftDigit(part.hours);
 				setRightDigit(part.minutes);
+				setLeftDigitRole(DigitRoles.twoDigits);
+				setRightDigitRole(DigitRoles.twoDigits);
 				break;
 			case Roles.seconds:
 				if (part.seconds < TEN) {
 					setLeftDigit(0);
 					setRightDigit(part.seconds);
+					setLeftDigitRole(DigitRoles.oneDigit);
+					setRightDigitRole(DigitRoles.oneDigit);
 					return;
 				}
 				setLeftDigit(Math.floor(part.seconds / TEN));
 				setRightDigit(part.seconds % TEN);
+				setLeftDigitRole(DigitRoles.oneDigit);
+				setRightDigitRole(DigitRoles.oneDigit);
 				break;
 			default:
 				setLeftDigit(part.hours);
 				setRightDigit(part.minutes);
+				setLeftDigitRole(DigitRoles.twoDigits);
+				setRightDigitRole(DigitRoles.twoDigits);
 				break;
 		}
 	};
@@ -85,18 +104,31 @@ function Part({ part, role }: PartProps) {
 				if (part.day < TEN) {
 					setLeftDigit(0);
 					setRightDigit(part.day);
+					setLeftDigitRole(DigitRoles.oneDigit);
+					setRightDigitRole(DigitRoles.oneDigit);
 					return;
 				}
 				setLeftDigit(Math.floor(part.day / TEN));
 				setRightDigit(part.day % TEN);
+				setLeftDigitRole(DigitRoles.oneDigit);
+				setRightDigitRole(DigitRoles.oneDigit);
 				break;
 			case Roles.monthAndYear:
 				setLeftDigit(part.month);
 				setRightDigit(part.year);
+				setLeftDigitRole(DigitRoles.month);
+				setRightDigitRole(DigitRoles.year);
 				break;
 			default:
 				break;
 		}
+	};
+
+	const setTest = () => {
+		setLeftDigit(part.month);
+		setRightDigit(part.year);
+		setLeftDigitRole(DigitRoles.test);
+		setRightDigitRole(DigitRoles.test);
 	};
 
 	useEffect(() => {
@@ -110,6 +142,9 @@ function Part({ part, role }: PartProps) {
 			case Modes.date:
 				setDate();
 				break;
+			case Modes.test:
+				setTest();
+				break;
 			default:
 				setHoursAndMinutes();
 				break;
@@ -119,10 +154,10 @@ function Part({ part, role }: PartProps) {
 	return (
 		<>
 			<div className="part__digit digit">
-				<Digit value={leftDigit} />
+				<Digit value={leftDigit} role={leftDigitRole} />
 			</div>
 			<div className="part__digit digit">
-				<Digit value={rightDigit} />
+				<Digit value={rightDigit} role={rightDigitRole} />
 			</div>
 		</>
 	);

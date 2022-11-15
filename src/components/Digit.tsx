@@ -1,52 +1,73 @@
-import React, { useLayoutEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Modes } from '../store/modeSlice';
-import { RootState } from '../store/index';
-import { DIGIT_SQUARE } from '../constants/constants';
+import { useEffect, useState } from 'react';
+import { TEN } from '../constants/constants';
+import DigitCanvas from './DigitCanvas';
+
+export enum DigitRoles {
+	oneDigit = 'oneDigit',
+	twoDigits = 'twoDigits',
+	month = 'month',
+	year = 'year',
+	test = 'test',
+}
 
 type DigitProps = {
 	value: number;
+	role: DigitRoles;
 };
 
-function Digit({ value }: DigitProps) {
-	const [spans, setSpans] = useState<number[]>([]);
-	const mode = useSelector((state: RootState) => state.mode.mode);
+function Digit({ value, role }: DigitProps) {
+	const [leftSmallDigitValue, setLeftSmallDigitValue] = useState<number>(0);
+	const [rightSmallDigitValue, setRightSmallDigitValue] = useState<number>(0);
 
-	const createSpans = () => {
-		const tempSpans = [];
+	useEffect(() => {
+		switch (role) {
+			case DigitRoles.twoDigits:
+				if (value < TEN) {
+					setLeftSmallDigitValue(0);
+					setRightSmallDigitValue(value);
+					return;
+				}
+				setLeftSmallDigitValue(Math.floor(value / TEN));
+				setRightSmallDigitValue(value % TEN);
+				break;
+			case DigitRoles.year:
+				const twoDigitsYear = value % 100;
+				if (twoDigitsYear < TEN) {
+					setLeftSmallDigitValue(0);
+					setRightSmallDigitValue(twoDigitsYear);
+					return;
+				}
+				setLeftSmallDigitValue(Math.floor(twoDigitsYear / TEN));
+				setRightSmallDigitValue(twoDigitsYear % TEN);
+				break;
 
-		for (let index = 0; index < DIGIT_SQUARE; index++) {
-			tempSpans.push(index);
+			default:
+				break;
 		}
-
-		setSpans(tempSpans);
-	};
-
-	useLayoutEffect(() => {
-		createSpans();
-	}, []);
+	}, [value, role]);
 
 	return (
 		<>
-			{mode === Modes.hoursMinutes && (
+			{role === DigitRoles.oneDigit && (
 				<div className={`digit__container digit-${value}`}>
-					{spans.map((sp, i) => (
-						<span className="digit__dot dot" key={i}></span>
-					))}
+					<DigitCanvas />
 				</div>
 			)}
-			{mode === Modes.hoursMinutesSeconds && (
-				<div className={`digit__container digit-${value}`}>
-					{spans.map((sp, i) => (
-						<span className="digit__dot dot" key={i}></span>
-					))}
+			{(role === DigitRoles.twoDigits || role === DigitRoles.year) && (
+				<div
+					className={`digit__container left-small-digit-${leftSmallDigitValue} right-small-digit-${rightSmallDigitValue}`}
+				>
+					<DigitCanvas />
 				</div>
 			)}
-			{mode === Modes.date && (
+			{role === DigitRoles.month && (
 				<div className={`digit__container digit-${value}`}>
-					{spans.map((sp, i) => (
-						<span className="digit__dot dot" key={i}></span>
-					))}
+					<DigitCanvas />
+				</div>
+			)}
+			{role === DigitRoles.test && (
+				<div className={`digit__container right-small-digit-0`}>
+					<DigitCanvas />
 				</div>
 			)}
 		</>

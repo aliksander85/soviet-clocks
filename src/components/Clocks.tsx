@@ -43,9 +43,13 @@ function Clocks() {
 				setLeftPartRole(Roles.day);
 				setRightPartRole(Roles.monthAndYear);
 				break;
+			case Modes.test:
+				setLeftPartRole(Roles.test);
+				setRightPartRole(Roles.test);
+				break;
 			default:
-				setLeftPartRole(Roles.left);
-				setRightPartRole(Roles.right);
+				setLeftPartRole(Roles.test);
+				setRightPartRole(Roles.test);
 				break;
 		}
 	}, [mode]);
