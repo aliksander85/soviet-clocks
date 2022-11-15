@@ -61,12 +61,12 @@ function Digit({ value, role }: DigitProps) {
 				</div>
 			)}
 			{role === DigitRoles.month && (
-				<div className={`digit__container digit-${value}`}>
+				<div className={`digit__container roman-digit-${value}`}>
 					<DigitCanvas />
 				</div>
 			)}
 			{role === DigitRoles.test && (
-				<div className={`digit__container right-small-digit-0`}>
+				<div className={`digit__container roman-digit-12`}>
 					<DigitCanvas />
 				</div>
 			)}

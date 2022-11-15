@@ -23,7 +23,7 @@ function Clocks() {
 			setMinutes(date.getMinutes());
 			setSeconds(date.getSeconds());
 			setDay(date.getDate());
-			setMonth(date.getMonth());
+			setMonth(date.getMonth() + 1);
 			setYear(date.getFullYear());
 		}, 1000);
 		return () => clearInterval(interval);

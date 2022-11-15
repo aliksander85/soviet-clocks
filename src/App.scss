@@ -403,6 +403,222 @@ $smallDigitOffset: 4;
 	@include small-digit-9($smallDigitOffset);
 }
 
+// Roman Digits
+.roman-digit-1 {
+	.dot:nth-child(n + 46):nth-child(-n + 46),
+	.dot:nth-child(n + 53):nth-child(-n + 53),
+	.dot:nth-child(n + 60):nth-child(-n + 60),
+	.dot:nth-child(n + 67):nth-child(-n + 67),
+	.dot:nth-child(n + 74):nth-child(-n + 74) {
+		@include active-item();
+	}
+}
+.roman-digit-2 {
+	.dot:nth-child(n + 45):nth-child(-n + 45),
+	.dot:nth-child(n + 47):nth-child(-n + 47),
+	.dot:nth-child(n + 52):nth-child(-n + 52),
+	.dot:nth-child(n + 54):nth-child(-n + 54),
+	.dot:nth-child(n + 59):nth-child(-n + 59),
+	.dot:nth-child(n + 61):nth-child(-n + 61),
+	.dot:nth-child(n + 66):nth-child(-n + 66),
+	.dot:nth-child(n + 68):nth-child(-n + 68),
+	.dot:nth-child(n + 73):nth-child(-n + 73),
+	.dot:nth-child(n + 75):nth-child(-n + 75) {
+		@include active-item();
+	}
+}
+.roman-digit-3 {
+	.dot:nth-child(n + 44):nth-child(-n + 44),
+	.dot:nth-child(n + 46):nth-child(-n + 46),
+	.dot:nth-child(n + 48):nth-child(-n + 48),
+	.dot:nth-child(n + 51):nth-child(-n + 51),
+	.dot:nth-child(n + 53):nth-child(-n + 53),
+	.dot:nth-child(n + 55):nth-child(-n + 55),
+	.dot:nth-child(n + 58):nth-child(-n + 58),
+	.dot:nth-child(n + 60):nth-child(-n + 60),
+	.dot:nth-child(n + 62):nth-child(-n + 62),
+	.dot:nth-child(n + 65):nth-child(-n + 65),
+	.dot:nth-child(n + 67):nth-child(-n + 67),
+	.dot:nth-child(n + 69):nth-child(-n + 69),
+	.dot:nth-child(n + 72):nth-child(-n + 72),
+	.dot:nth-child(n + 74):nth-child(-n + 74),
+	.dot:nth-child(n + 76):nth-child(-n + 76) {
+		@include active-item();
+	}
+}
+.roman-digit-4 {
+	.dot:nth-child(n + 44):nth-child(-n + 44),
+	.dot:nth-child(n + 51):nth-child(-n + 51),
+	.dot:nth-child(n + 58):nth-child(-n + 58),
+	.dot:nth-child(n + 65):nth-child(-n + 65),
+	.dot:nth-child(n + 72):nth-child(-n + 72),
+	.dot:nth-child(n + 46):nth-child(-n + 46),
+	.dot:nth-child(n + 48):nth-child(-n + 48),
+	.dot:nth-child(n + 53):nth-child(-n + 53),
+	.dot:nth-child(n + 55):nth-child(-n + 55),
+	.dot:nth-child(n + 60):nth-child(-n + 60),
+	.dot:nth-child(n + 62):nth-child(-n + 62),
+	.dot:nth-child(n + 67):nth-child(-n + 67),
+	.dot:nth-child(n + 69):nth-child(-n + 69),
+	.dot:nth-child(n + 75):nth-child(-n + 75) {
+		@include active-item();
+	}
+}
+.roman-digit-5 {
+	.dot:nth-child(n + 45):nth-child(-n + 45),
+	.dot:nth-child(n + 47):nth-child(-n + 47),
+	.dot:nth-child(n + 52):nth-child(-n + 52),
+	.dot:nth-child(n + 54):nth-child(-n + 54),
+	.dot:nth-child(n + 59):nth-child(-n + 59),
+	.dot:nth-child(n + 61):nth-child(-n + 61),
+	.dot:nth-child(n + 66):nth-child(-n + 66),
+	.dot:nth-child(n + 68):nth-child(-n + 68),
+	.dot:nth-child(n + 74):nth-child(-n + 74) {
+		@include active-item();
+	}
+}
+.roman-digit-6 {
+	.dot:nth-child(n + 46):nth-child(-n + 46),
+	.dot:nth-child(n + 44):nth-child(-n + 44),
+	.dot:nth-child(n + 53):nth-child(-n + 53),
+	.dot:nth-child(n + 51):nth-child(-n + 51),
+	.dot:nth-child(n + 60):nth-child(-n + 60),
+	.dot:nth-child(n + 58):nth-child(-n + 58),
+	.dot:nth-child(n + 67):nth-child(-n + 67),
+	.dot:nth-child(n + 65):nth-child(-n + 65),
+	.dot:nth-child(n + 73):nth-child(-n + 73),
+	.dot:nth-child(n + 48):nth-child(-n + 48),
+	.dot:nth-child(n + 55):nth-child(-n + 55),
+	.dot:nth-child(n + 62):nth-child(-n + 62),
+	.dot:nth-child(n + 69):nth-child(-n + 69),
+	.dot:nth-child(n + 76):nth-child(-n + 76) {
+		@include active-item();
+	}
+}
+.roman-digit-7 {
+	.dot:nth-child(n + 45):nth-child(-n + 45),
+	.dot:nth-child(n + 43):nth-child(-n + 43),
+	.dot:nth-child(n + 52):nth-child(-n + 52),
+	.dot:nth-child(n + 50):nth-child(-n + 50),
+	.dot:nth-child(n + 59):nth-child(-n + 59),
+	.dot:nth-child(n + 57):nth-child(-n + 57),
+	.dot:nth-child(n + 66):nth-child(-n + 66),
+	.dot:nth-child(n + 64):nth-child(-n + 64),
+	.dot:nth-child(n + 72):nth-child(-n + 72),
+	.dot:nth-child(n + 47):nth-child(-n + 47),
+	.dot:nth-child(n + 54):nth-child(-n + 54),
+	.dot:nth-child(n + 61):nth-child(-n + 61),
+	.dot:nth-child(n + 68):nth-child(-n + 68),
+	.dot:nth-child(n + 75):nth-child(-n + 75),
+	.dot:nth-child(n + 49):nth-child(-n + 49),
+	.dot:nth-child(n + 56):nth-child(-n + 56),
+	.dot:nth-child(n + 63):nth-child(-n + 63),
+	.dot:nth-child(n + 70):nth-child(-n + 70),
+	.dot:nth-child(n + 77):nth-child(-n + 77) {
+		@include active-item();
+	}
+}
+.roman-digit-8 {
+	.dot:nth-child(n + 45):nth-child(-n + 45),
+	.dot:nth-child(n + 43):nth-child(-n + 43),
+	.dot:nth-child(n + 52):nth-child(-n + 52),
+	.dot:nth-child(n + 50):nth-child(-n + 50),
+	.dot:nth-child(n + 59):nth-child(-n + 59),
+	.dot:nth-child(n + 57):nth-child(-n + 57),
+	.dot:nth-child(n + 66):nth-child(-n + 66),
+	.dot:nth-child(n + 64):nth-child(-n + 64),
+	.dot:nth-child(n + 72):nth-child(-n + 72),
+	.dot:nth-child(n + 47):nth-child(-n + 47),
+	.dot:nth-child(n + 54):nth-child(-n + 54),
+	.dot:nth-child(n + 61):nth-child(-n + 61),
+	.dot:nth-child(n + 68):nth-child(-n + 68),
+	.dot:nth-child(n + 75):nth-child(-n + 75),
+	.dot:nth-child(n + 48):nth-child(-n + 48),
+	.dot:nth-child(n + 55):nth-child(-n + 55),
+	.dot:nth-child(n + 62):nth-child(-n + 62),
+	.dot:nth-child(n + 69):nth-child(-n + 69),
+	.dot:nth-child(n + 76):nth-child(-n + 76),
+	.dot:nth-child(n + 49):nth-child(-n + 49),
+	.dot:nth-child(n + 56):nth-child(-n + 56),
+	.dot:nth-child(n + 63):nth-child(-n + 63),
+	.dot:nth-child(n + 70):nth-child(-n + 70),
+	.dot:nth-child(n + 77):nth-child(-n + 77) {
+		@include active-item();
+	}
+}
+.roman-digit-9 {
+	.dot:nth-child(n + 44):nth-child(-n + 44),
+	.dot:nth-child(n + 51):nth-child(-n + 51),
+	.dot:nth-child(n + 58):nth-child(-n + 58),
+	.dot:nth-child(n + 65):nth-child(-n + 65),
+	.dot:nth-child(n + 72):nth-child(-n + 72),
+	.dot:nth-child(n + 46):nth-child(-n + 46),
+	.dot:nth-child(n + 48):nth-child(-n + 48),
+	.dot:nth-child(n + 53):nth-child(-n + 53),
+	.dot:nth-child(n + 55):nth-child(-n + 55),
+	.dot:nth-child(n + 61):nth-child(-n + 61),
+	.dot:nth-child(n + 67):nth-child(-n + 67),
+	.dot:nth-child(n + 69):nth-child(-n + 69),
+	.dot:nth-child(n + 74):nth-child(-n + 74),
+	.dot:nth-child(n + 76):nth-child(-n + 76) {
+		@include active-item();
+	}
+}
+.roman-digit-10 {
+	.dot:nth-child(n + 47):nth-child(-n + 47),
+	.dot:nth-child(n + 45):nth-child(-n + 45),
+	.dot:nth-child(n + 54):nth-child(-n + 54),
+	.dot:nth-child(n + 52):nth-child(-n + 52),
+	.dot:nth-child(n + 60):nth-child(-n + 60),
+	.dot:nth-child(n + 68):nth-child(-n + 68),
+	.dot:nth-child(n + 66):nth-child(-n + 66),
+	.dot:nth-child(n + 75):nth-child(-n + 75),
+	.dot:nth-child(n + 73):nth-child(-n + 73) {
+		@include active-item();
+	}
+}
+.roman-digit-11 {
+	.dot:nth-child(n + 44):nth-child(-n + 44),
+	.dot:nth-child(n + 46):nth-child(-n + 46),
+	.dot:nth-child(n + 51):nth-child(-n + 51),
+	.dot:nth-child(n + 53):nth-child(-n + 53),
+	.dot:nth-child(n + 59):nth-child(-n + 59),
+	.dot:nth-child(n + 65):nth-child(-n + 65),
+	.dot:nth-child(n + 67):nth-child(-n + 67),
+	.dot:nth-child(n + 72):nth-child(-n + 72),
+	.dot:nth-child(n + 74):nth-child(-n + 74),
+	.dot:nth-child(n + 48):nth-child(-n + 48),
+	.dot:nth-child(n + 55):nth-child(-n + 55),
+	.dot:nth-child(n + 62):nth-child(-n + 62),
+	.dot:nth-child(n + 69):nth-child(-n + 69),
+	.dot:nth-child(n + 76):nth-child(-n + 76) {
+		@include active-item();
+	}
+}
+.roman-digit-12 {
+	.dot:nth-child(n + 43):nth-child(-n + 43),
+	.dot:nth-child(n + 45):nth-child(-n + 45),
+	.dot:nth-child(n + 50):nth-child(-n + 50),
+	.dot:nth-child(n + 52):nth-child(-n + 52),
+	.dot:nth-child(n + 58):nth-child(-n + 58),
+	.dot:nth-child(n + 64):nth-child(-n + 64),
+	.dot:nth-child(n + 66):nth-child(-n + 66),
+	.dot:nth-child(n + 71):nth-child(-n + 71),
+	.dot:nth-child(n + 73):nth-child(-n + 73),
+	.dot:nth-child(n + 47):nth-child(-n + 47),
+	.dot:nth-child(n + 54):nth-child(-n + 54),
+	.dot:nth-child(n + 61):nth-child(-n + 61),
+	.dot:nth-child(n + 68):nth-child(-n + 68),
+	.dot:nth-child(n + 75):nth-child(-n + 75),
+	.dot:nth-child(n + 49):nth-child(-n + 49),
+	.dot:nth-child(n + 56):nth-child(-n + 56),
+	.dot:nth-child(n + 63):nth-child(-n + 63),
+	.dot:nth-child(n + 70):nth-child(-n + 70),
+	.dot:nth-child(n + 77):nth-child(-n + 77) {
+		@include active-item();
+	}
+}
+
 .name {
 	color: #e3e3e3;
 	text-transform: uppercase;
