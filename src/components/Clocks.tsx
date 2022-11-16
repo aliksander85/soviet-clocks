@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store/index';
-import { Modes } from '../store/modeSlice';
+import { Modes, setNextMode } from '../store/modeSlice';
 import Part, { Roles } from './Part';
 import Point from './Point';
 
@@ -15,6 +15,7 @@ function Clocks() {
 	const [leftPartRole, setLeftPartRole] = useState<Roles>(Roles.left);
 	const [rightPartRole, setRightPartRole] = useState<Roles>(Roles.right);
 	const mode = useSelector((state: RootState) => state.mode.mode);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -54,6 +55,10 @@ function Clocks() {
 		}
 	}, [mode]);
 
+	const handleClickModeButton = () => {
+		dispatch(setNextMode('next'));
+	};
+
 	return (
 		<div className="clocks">
 			<div className="clocks__part part">
@@ -86,6 +91,10 @@ function Clocks() {
 				/>
 			</div>
 			<h4 className="clocks__name name">Электроника 7</h4>
+			<button
+				className="clocks__mode-button mode-button"
+				onClick={handleClickModeButton}
+			></button>
 		</div>
 	);
 }

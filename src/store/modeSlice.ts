@@ -16,9 +16,21 @@ const modeSlice = createSlice({
 		setMode: (state, action) => {
 			state.mode = action.payload.mode;
 		},
+		setNextMode: (state, action) => {
+			const currentMode = state.mode;
+			const modeKeys = Object.keys(Modes).filter(
+				(mode) => String(mode)[0].toUpperCase() !== String(mode)[0]
+			);
+			const currentIndex = modeKeys.findIndex(
+				(key) => Modes[key as keyof typeof Modes] === currentMode
+			);
+			const nextIndex =
+				currentIndex === modeKeys.length - 1 ? 0 : currentIndex + 1;
+			state.mode = Modes[modeKeys[nextIndex] as keyof typeof Modes];
+		},
 	},
 });
 
-export const { setMode } = modeSlice.actions;
+export const { setMode, setNextMode } = modeSlice.actions;
 
 export default modeSlice.reducer;
