@@ -14,6 +14,7 @@ function Clocks() {
 	const [year, setYear] = useState<number>(0);
 	const [leftPartRole, setLeftPartRole] = useState<Roles>(Roles.left);
 	const [rightPartRole, setRightPartRole] = useState<Roles>(Roles.right);
+	const [isButtonPressed, setIsButtonPressed] = useState(false);
 	const mode = useSelector((state: RootState) => state.mode.mode);
 	const dispatch = useDispatch();
 
@@ -44,10 +45,6 @@ function Clocks() {
 				setLeftPartRole(Roles.day);
 				setRightPartRole(Roles.monthAndYear);
 				break;
-			case Modes.test:
-				setLeftPartRole(Roles.test);
-				setRightPartRole(Roles.test);
-				break;
 			default:
 				setLeftPartRole(Roles.test);
 				setRightPartRole(Roles.test);
@@ -57,6 +54,14 @@ function Clocks() {
 
 	const handleClickModeButton = () => {
 		dispatch(setNextMode('next'));
+	};
+
+	const handleMouseDownButton = () => {
+		setIsButtonPressed(true);
+	};
+
+	const handleMouseUpButton = () => {
+		setIsButtonPressed(false);
 	};
 
 	return (
@@ -92,8 +97,13 @@ function Clocks() {
 			</div>
 			<h4 className="clocks__name name">Электроника 7</h4>
 			<button
-				className="clocks__mode-button mode-button"
+				className={
+					'clocks__mode-button mode-button ' +
+					(isButtonPressed ? 'mode-button--pressed' : '')
+				}
 				onClick={handleClickModeButton}
+				onMouseDown={handleMouseDownButton}
+				onMouseUp={handleMouseUpButton}
 			></button>
 		</div>
 	);

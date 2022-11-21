@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux';
 import store from './store';
-import Settings from './components/Settings';
+import Clocks from './components/Clocks';
 import './App.scss';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
 		<Provider store={store}>
 			<main className="app">
 				<div className="app__settings">
-					<Settings />
+					<Clocks />
 				</div>
 			</main>
 		</Provider>
