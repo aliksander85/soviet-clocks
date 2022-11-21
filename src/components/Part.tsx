@@ -124,13 +124,6 @@ function Part({ part, role }: PartProps) {
 		}
 	};
 
-	const setTest = () => {
-		setLeftDigit(part.month);
-		setRightDigit(part.year);
-		setLeftDigitRole(DigitRoles.test);
-		setRightDigitRole(DigitRoles.test);
-	};
-
 	useEffect(() => {
 		switch (mode) {
 			case Modes.hoursMinutes:
@@ -141,9 +134,6 @@ function Part({ part, role }: PartProps) {
 				break;
 			case Modes.date:
 				setDate();
-				break;
-			case Modes.test:
-				setTest();
 				break;
 			default:
 				setHoursAndMinutes();

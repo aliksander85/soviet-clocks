@@ -4,7 +4,6 @@ export enum Modes {
 	hoursMinutes = 'Hours & Minutes' as any,
 	hoursMinutesSeconds = 'Hours & Minutes & Seconds' as any,
 	date = 'Date' as any,
-	test = 'Test' as any,
 }
 
 const modeSlice = createSlice({
