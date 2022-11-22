@@ -101,6 +101,7 @@ function Clocks() {
 					'clocks__mode-button mode-button ' +
 					(isButtonPressed ? 'mode-button--pressed' : '')
 				}
+				title="Change Mode"
 				onClick={handleClickModeButton}
 				onMouseDown={handleMouseDownButton}
 				onMouseUp={handleMouseUpButton}
