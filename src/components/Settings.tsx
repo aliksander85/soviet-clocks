@@ -1,13 +1,13 @@
 import Clocks from './Clocks';
 import { useDispatch } from 'react-redux';
 import { setMode } from '../store/modeSlice';
-import { Modes } from '../store/modeSlice';
+import { Modes, Mode } from '../store/modeSlice';
 import ModeItem from './ModeItem';
 
 function Settings() {
 	const dispatch = useDispatch();
 
-	const handleModeClick = (modeKey: keyof Modes) => {
+	const handleModeClick = (modeKey: Mode) => {
 		dispatch(setMode({ mode: Modes[modeKey as keyof typeof Modes] }));
 	};
 
@@ -16,14 +16,14 @@ function Settings() {
 			<ul className="settings__mode mode">
 				{Object.values(Modes)
 					.filter(
-						(modekey: string | Modes) =>
+						(modekey: string | Mode) =>
 							String(modekey)[0].toUpperCase() !==
 							String(modekey)[0]
 					)
 					.map((modeKey) => (
 						<ModeItem
 							key={modeKey}
-							modeKey={modeKey as keyof Modes}
+							modeKey={modeKey as Mode}
 							handleModeClick={handleModeClick}
 						/>
 					))}

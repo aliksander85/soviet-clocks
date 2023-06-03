@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store/index';
-import { Modes, setNextMode } from '../store/modeSlice';
+import { setNextMode } from '../store/modeSlice';
 import Part, { Roles } from './Part';
 import Point from './Point';
 
@@ -33,15 +33,15 @@ function Clocks() {
 
 	useEffect(() => {
 		switch (mode) {
-			case Modes.hoursMinutes:
+			case 'hoursMinutes':
 				setLeftPartRole(Roles.left);
 				setRightPartRole(Roles.right);
 				break;
-			case Modes.hoursMinutesSeconds:
+			case 'hoursMinutesSeconds':
 				setLeftPartRole(Roles.hoursAndMinutes);
 				setRightPartRole(Roles.seconds);
 				break;
-			case Modes.date:
+			case 'date':
 				setLeftPartRole(Roles.day);
 				setRightPartRole(Roles.monthAndYear);
 				break;

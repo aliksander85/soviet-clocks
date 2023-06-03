@@ -126,13 +126,13 @@ function Part({ part, role }: PartProps) {
 
 	useEffect(() => {
 		switch (mode) {
-			case Modes.hoursMinutes:
+			case 'hoursMinutes':
 				setHoursAndMinutes();
 				break;
-			case Modes.hoursMinutesSeconds:
+			case 'hoursMinutesSeconds':
 				setHoursMinutesAndSeconds();
 				break;
-			case Modes.date:
+			case 'date':
 				setDate();
 				break;
 			default:

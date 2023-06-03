@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
-import { Modes } from '../store/modeSlice';
+import { Modes, Mode } from '../store/modeSlice';
 import { RootState } from '../store/index';
 
 type ModeItemProps = {
-	modeKey: string | Modes;
-	handleModeClick: (modeKey: keyof Modes) => void;
+	modeKey: string | Mode;
+	handleModeClick: (modeKey: Mode) => void;
 };
 
 function ModeItem({ modeKey, handleModeClick }: ModeItemProps) {
@@ -14,11 +14,9 @@ function ModeItem({ modeKey, handleModeClick }: ModeItemProps) {
 			className={
 				'mode__item mode-item ' +
 				`${modeKey} ` +
-				(mode === Modes[modeKey as keyof typeof Modes]
-					? 'selected'
-					: '')
+				(mode === modeKey ? 'selected' : '')
 			}
-			onClick={() => handleModeClick(modeKey as keyof Modes)}
+			onClick={() => handleModeClick(modeKey as Mode)}
 		>
 			{Modes[modeKey as keyof typeof Modes]}
 		</li>

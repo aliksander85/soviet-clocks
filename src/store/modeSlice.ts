@@ -1,31 +1,34 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export enum Modes {
-	hoursMinutes = 'Hours & Minutes' as any,
-	hoursMinutesSeconds = 'Hours & Minutes & Seconds' as any,
-	date = 'Date' as any,
-}
+export const Modes = {
+	hoursMinutes: 'Hours & Minutes',
+	hoursMinutesSeconds: 'Hours & Minutes & Seconds',
+	date: 'Date',
+} as const;
+
+export type Mode = keyof typeof Modes;
+
+type State = {
+	mode: keyof typeof Modes;
+};
+
+const initialState: State = {
+	mode: 'hoursMinutes',
+};
 
 const modeSlice = createSlice({
 	name: 'mode',
-	initialState: {
-		mode: Modes.hoursMinutes,
-	},
+	initialState,
 	reducers: {
 		setMode: (state, action) => {
 			state.mode = action.payload.mode;
 		},
 		setNextMode: (state, action) => {
 			const currentMode = state.mode;
-			const modeKeys = Object.keys(Modes).filter(
-				(mode) => String(mode)[0].toUpperCase() !== String(mode)[0]
-			);
-			const currentIndex = modeKeys.findIndex(
-				(key) => Modes[key as keyof typeof Modes] === currentMode
-			);
-			const nextIndex =
-				currentIndex === modeKeys.length - 1 ? 0 : currentIndex + 1;
-			state.mode = Modes[modeKeys[nextIndex] as keyof typeof Modes];
+			const modeKeys = Object.keys(Modes) as Mode[];
+			const currentIndex = modeKeys.indexOf(currentMode);
+			const nextIndex = (currentIndex + 1) % modeKeys.length;
+			state.mode = modeKeys[nextIndex];
 		},
 	},
 });
