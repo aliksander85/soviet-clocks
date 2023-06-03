@@ -83,17 +83,35 @@ $smallDigitOffset: 4;
 	left: -22px;
 	width: 14px;
 	height: 20px;
-	background-color: #d2d4d2;
+	background-color: $clocksBorder;
 	border: 1px solid #1c1c1c;
 	border-right: none;
 	border-bottom-left-radius: 4px;
 	border-top-left-radius: 4px;
 	padding: 0;
 	cursor: pointer;
+	animation: glowing 1300ms infinite;
 
 	&--pressed {
 		left: -16px;
 		width: 8px;
+	}
+}
+@keyframes glowing {
+	0% {
+		background-color: $clocksBorder;
+	}
+	25% {
+		background-color: $highlightHover;
+	}
+	50% {
+		background-color: $highlight;
+	}
+	75% {
+		background-color: $highlightHover;
+	}
+	100% {
+		background-color: $clocksBorder;
 	}
 }
 
