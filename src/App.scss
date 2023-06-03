@@ -93,8 +93,8 @@ $smallDigitOffset: 4;
 	animation: glowing 1300ms infinite;
 
 	&--pressed {
-		left: -16px;
-		width: 8px;
+		left: -28px;
+		width: 20px;
 	}
 }
 @keyframes glowing {
