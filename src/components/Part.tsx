@@ -99,6 +99,7 @@ function Part({ part, role }: PartProps) {
 	};
 
 	const setDate = () => {
+		// TODO: check this
 		switch (role) {
 			case Roles.day:
 				if (part.day < TEN) {
